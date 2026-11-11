@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Security: only load scripts and styles from this site. No inline code, no third-party servers. -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>FS to Prototype</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>FS to Prototype</h1>
+      <p class="sub">Check your functional spec for gaps, then see a clickable Fiori Elements prototype before you build. For new RAP apps (list report + object page).</p>
+    </header>
+
+    <div class="warn" role="note">
+      <strong>Before you start:</strong> remove client names and confidential data from your FS. Your FS is not stored.
+    </div>
+
+    <label for="appName">App name</label>
+    <input id="appName" type="text" maxlength="60" placeholder="e.g. Manage Asset Transfers" autocomplete="off">
+
+    <label for="fsFile">Upload FS <span class="hint">(.docx only, max 10 MB)</span></label>
+    <input id="fsFile" type="file" accept=".docx">
+    <p class="hint">The file is read inside your browser. Only the text is used. Screenshots and images are ignored.</p>
+
+    <label for="fsText">Or paste FS text</label>
+    <textarea id="fsText" rows="14" spellcheck="false" placeholder="Paste the functional spec text here..."></textarea>
+    <div class="row">
+      <span id="count" class="hint">0 / 30,000 characters</span>
+      <button id="clearBtn" type="button" class="link">Clear</button>
+    </div>
+
+    <p id="msg" class="msg" role="status" aria-live="polite"></p>
+
+    <button id="checkBtn" type="button" disabled>Check for gaps</button>
+  </main>
+
+  <script src="mammoth.browser.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
